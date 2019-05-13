@@ -38,14 +38,11 @@ function promptCustomer() {
                 name: 'item_id',
                 message: "Select the item you would like to purchase by item id.",
             },
-            {
-                type: 'input',
-                name: 'quantity',
-                message: "How many units?",
-            }
+            
+
         ])
         .then(function (val) {
-            let productId = val.choice;
+            var productId = val.item_id;
             console.log("You chose: " + productId)
             checkInventory(productId);
             promptQuantity();
@@ -53,22 +50,22 @@ function promptCustomer() {
         });
 }
 
-// function promptQuantity() {
-//     inquirer
-//         .prompt([{
-//                 type: 'input',
-//                 name: 'quantity',
-//                 message: "How many units?",
-//             }
+function promptQuantity() {
+    inquirer
+        .prompt([{
+                type: 'input',
+                name: 'quantity',
+                message: "How many units?",
+            }
 
-//         ])
-//         .then(function (val) {
+        ])
+        .then(function (val) {
 
-//             var productQuantity = val.quantity;
-//             console.log(productQuantity)
+            var productQuantity = val.quantity;
+            console.log(productQuantity)
 
-//         });
-// }
+        });
+}
 
 function checkInventory(productId) {
     console.log("Checking for: " + productId)
