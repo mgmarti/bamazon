@@ -38,21 +38,7 @@ function promptCustomer() {
                 name: 'item_id',
                 message: "Select the item you would like to purchase by item id.",
             },
-            
-
-        ])
-        .then(function (val) {
-            var productId = val.item_id;
-            console.log("You chose: " + productId)
-            checkInventory(productId);
-            promptQuantity();
-
-        });
-}
-
-function promptQuantity() {
-    inquirer
-        .prompt([{
+            {
                 type: 'input',
                 name: 'quantity',
                 message: "How many units?",
@@ -60,13 +46,23 @@ function promptQuantity() {
 
         ])
         .then(function (val) {
+            // var productId = val.item_id;
+            var productQty = val.quantity;
+            // console.log(productQty)
+            // console.log("You chose: " + productId)
+            // checkInventory(productId);
+            // promptQuantity();
 
-            var productQuantity = val.quantity;
-            console.log(productQuantity)
+            connection.query("SELECT * FROM products_db.products", function (error, response) {
+
+                let product = response[0];
+
+                if (productQty <= product.stock_quantity) {
+                    console.log(product.product_name + " is in stock!")
+                } else {
+                    console.log('item not in stock')
+                }
+            })
 
         });
-}
-
-function checkInventory(productId) {
-    console.log("Checking for: " + productId)
 }
