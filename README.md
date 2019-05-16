@@ -1,5 +1,4 @@
 # Bamazon
----
 
 ## Overview
 
@@ -7,7 +6,7 @@ Create an Amazon-like storefront with MySQL and Node.js. The app will take in or
 
 ## Requirements
 
-**Node Packages*
+**Node Packages**
 1. MySQL
 2. Inquirer
 
