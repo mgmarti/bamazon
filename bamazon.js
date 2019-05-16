@@ -1,3 +1,4 @@
+require("dotenv").config();
 const inquirer = require('inquirer');
 const mysql = require('mysql');
 require('console.table')
@@ -7,7 +8,7 @@ const connection = mysql.createConnection({
     host: 'localhost',
     port: 3306,
     user: 'root',
-    password: 'root',
+    password: process.env.SQL_KEY,
     database: 'products_db'
 });
 
@@ -20,7 +21,7 @@ connection.connect(function (err) {
 //Displays Inventory
 function displayInventory() {
     connection.query('SELECT * FROM products_db.products', function (error, response) {
-        if (error) throw error
+        if (error) throw error;
         console.table(response)
         promptCustomer();
     })
@@ -54,22 +55,22 @@ function promptCustomer() {
                 // console.log(product[0].stock_quantity);
 
                 if (productQty <= product[0].stock_quantity) {
-                    console.log('\n' + product[0].product_name + ' is/are in stock! Placing order!');
+                    console.log('\n' + product[0].product_name + ' is/are in stock! Placing order!\n');
 
                     let updateStock = 'UPDATE products SET stock_quantity = ' + (product[0].stock_quantity - productQty) + ' WHERE item_id = ' + productId;
                     // console.log(updateStock);
 
                     connection.query(updateStock, function (error, response) {
                         if (error) throw error
-                        console.log('Your total is $' + product[0].price * productQty + '\n');
+                        console.log('Your total is $' + product[0].price * productQty + ' Your order has been placed!\n');
                         promptCustomer2();
                     })
 
 
                 } else {
-                    console.log('Sorry, that item not in stock');
+                    console.log('\nSorry, that item not in stock\n');
                     // console.log('Would you like to purchase something else? \n');
-                    // promptCustomer();
+                    promptCustomer2();
                 }
             })
 
@@ -83,19 +84,16 @@ function promptCustomer2() {
                 type: 'list',
                 name: 'buymore',
                 message: "Would you like to buy something else?",
-                choices: [
-                    "Yes",
-                    "No"
-                ]
+                choices: ['Yes', 'No']
             }
 
         ])
         .then(function (val) {
-            let userAnswer = "Yes";
+            let userAnswer = val.buymore;
 
-            if (userAnswer === "Yes") {
+            if (userAnswer === 'Yes') {
+                console.log('\n')
                 displayInventory();
-                promptCustomer();
             } else {
                 connection.end();
             }
