@@ -15,9 +15,10 @@ Create an Amazon-like storefront with MySQL and Node.js. The app will take in or
 1. Starting Bamazon app
     Command node bamazon.js to start app and display list of items for sale.
 
-![image of bamazon-start](/assets/images/bamazon-start.gif)
 
-|How to use the Bamazon app       |
-|----------------|----------------|
-|1. Starting Bamazon app  |  Command node bamazon.js to start app and display list of items for sale. ![image of bamazon-start](/assets/images/bamazon-start.gif)|
-                             
+
+|Using Bamazon App                                                                                                                       |
+|-----------------------|----------------------------------------------------------------------------------------------------------------|
+|1. Starting App        |Command node bamazon.js to start app and display list of items for sale.                                        |
+|                       |![image of bamazon-start](/assets/images/bamazon-start.gif)                                                     |
+|2.                     |                                                                                                                |
