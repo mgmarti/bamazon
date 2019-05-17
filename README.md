@@ -37,11 +37,11 @@ Create an Amazon-like storefront with MySQL and Node.js. The app will take in or
 
     If user selects no, app closes.
 
-    ![image of bamazon-start](/assets/images/bamazon-buyend.gif)
+    ![image of bamazon-end-of-transaction](/assets/images/bamazon-buyend.gif)
 
 5. Out of Stock/Insufficient quantity
 
     If user inputs unit amount higher than available, user receives insufficient quantity notification.
 
-       ![image of bamazon-start](/assets/images/bamazon-end.gif)
+    ![image of bamazon-app-end](/assets/images/bamazon-end.gif)
     
