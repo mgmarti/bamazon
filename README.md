@@ -43,5 +43,5 @@ Create an Amazon-like storefront with MySQL and Node.js. The app will take in or
 
     If user inputs unit amount higher than available, user receives insufficient quantity notification.
 
-       ![image of bamazon-start](/assets/images/bamazon-insufficient.gif)
+       ![image of bamazon-start](/assets/images/bamazon-end.gif)
     
