@@ -14,4 +14,4 @@ Create an Amazon-like storefront with MySQL and Node.js. The app will take in or
 
 1. Getting started
 
-![image of bamazon-start](/assets/images/bamazon-start.gif=250)
+![image of bamazon-start](/assets/images/bamazon-start.gif)
