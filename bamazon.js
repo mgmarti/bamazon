@@ -68,7 +68,7 @@ function promptCustomer() {
 
 
                 } else {
-                    console.log('\nSorry, insufficient quantity.33\n');
+                    console.log('\nSorry, insufficient quantity\n');
                     // console.log('Would you like to purchase something else? \n');
                     promptCustomer2();
                 }
